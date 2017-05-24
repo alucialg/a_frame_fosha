@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+    
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.myapp.mobile" version="2.25" xmlns="http://www.w3.org/ns/widgets">
+  <name>Fosha</name>
+  <description>Realidad virtual de mundo de los dioses del aire y la tierra</description>
+  <author>Lucía López</author>
+  <preference name="phonegap-version" value="cli-6.3.0" />
+  <preference name="permissions" value="none" />
+  <preference name="orientation" value="portrait" />
+  <preference name="target-device" value="universal" />
+  <preference name="fullscreen" value="false" />
+
+  <plugin name="cordova-plugin-inappbrowser" spec="1.3.0" />
+  <plugin name="cordova-plugin-device" spec="1.1.2" />
+  <plugin name="cordova-plugin-splashscreen" spec="3.2.2" />
+
+    <icon src="icons/icon.png"/>
+    
+<head>
+    <meta charset="UTF-8">
+    <title>FOSHA</title>
+     <script src="js/aframe.min.js"></script> 
+</head>
+<body>
+
+<a-scene>
+  <a-assets>
+    <img id="texturaCubo" src="imagen/pitissue.jpg" alt="">
+    <img id="texturaCielo" src="imagen/acuarela-cielo.jpg" alt="">
+    <img id="texturaPiso" src="imagen/newsprnt.jpg" alt="">
+    
+    <a-asset-item id="casa-fosha-obj" src="modelos3d/casa-fosha.obj"></a-asset-item>
+    <a-asset-item id="casa-fosha-mtl" src="modelos3d/casa-fosha.mtl"></a-asset-item>
+    <a-asset-item id="personaje-obj" src="modelos3d/personaje.obj"></a-asset-item>
+    <a-asset-item id="personaje-mtl" src="modelos3d/personaje.mtl"></a-asset-item>
+    <a-asset-item id="fosha-verde-obj" src="modelos3d/fosha-verde.obj"></a-asset-item>
+    <a-asset-item id="fosha-verde-mtl" src="modelos3d/fosha-verde.mtl"></a-asset-item>
+
+    <a-asset-item id="montanas-obj" src="modelos3d/montanas.obj"></a-asset-item>
+    <a-asset-item id="montanas-mtl" src="modelos3d/montanas.mtl"></a-asset-item>
+      
+    <a-asset-item id="casa-morada-obj" src="modelos3d/casa-morada.obj"></a-asset-item>
+    <a-asset-item id="casa-morada-mtl" src="modelos3d/casa-morada.mtl"></a-asset-item>
+      
+    <a-asset-item id="casa-azul-obj" src="modelos3d/casa-azul.obj"></a-asset-item>
+    <a-asset-item id="casa-azul-mtl" src="modelos3d/casa-azul.mtl"></a-asset-item>
+      
+    <a-asset-item id="fosha-amarillo-obj" src="modelos3d/fosha-amarillo.obj"></a-asset-item>
+    <a-asset-item id="fosha-amarillo-mtl" src="modelos3d/fosha-amarillo.mtl"></a-asset-item>
+      
+    <a-asset-item id="fosha-gris-obj" src="modelos3d/fosha-gris.obj"></a-asset-item>
+    <a-asset-item id="fosha-gris-mtl" src="modelos3d/fosha-gris.mtl"></a-asset-item>
+
+    <a-asset-item id="fosha-rosa-obj" src="modelos3d/fosha-rosa.obj"></a-asset-item>
+    <a-asset-item id="fosha-rosa-mtl" src="modelos3d/fosha-rosa.mtl"></a-asset-item>
+
+
+
+    
+  </a-assets>
+  <a-sphere position="0 4 .9" rotation="15 90 45" scale=".7 .7 .7" src="#texturaCubo"> 
+      <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite" to="0 4 -8"></a-animation>
+
+  </a-sphere>
+
+  <a-sky height="2048" radius="30" src="#texturaCielo" theta-length="90" width="2048"></a-sky>
+    
+  <a-light type="ambient" color="#445451"></a-light>
+    
+      <a-light type="point" intensity=".5" position="0 4 0"></a-light>
+    
+          <a-light type="point" intensity=".2" position="-5 0 -9"></a-light>
+          <a-light type="point" intensity=".2" position="12 0 -11"></a-light>
+              <a-light type="point" intensity=".2" position="12 0 5"></a-light>
+                  <a-light type="point" intensity=".2" position="-1 0 8"></a-light>
+
+
+  <a-plane src="#texturaPiso" rotation="-90 0 0" height="100" width="100"></a-plane>
+
+  <a-text value="&iexcl; &#161;fOSHA! descubre el mundo de los fosha, dioses del aire y la tierra" color="#BBB" position="-3 2 2" scale="1.5 1.5 1.5" rotation="0 90 -0"></a-text>
+          
+<!-- Agregar un modelo 3d en formato .obj -->  
+
+  <a-entity obj-model="obj: #montanas-obj; mtl: #montanas-mtl" position="-5 0 -9" scale=".03 .03 .03" rotation="-90 0 0"></a-entity> 
+    
+<a-entity obj-model="obj: #casa-fosha-obj; mtl: #casa-fosha-mtl" position="-5 0 -9" scale=".04 .04 .04" rotation="-90 0 0"></a-entity>
+
+    <a-entity obj-model="obj: #fosha-verde-obj; mtl: #fosha-verde-mtl" rotation="-90 -130 0" position="9 1 6" scale=".04 .04 .04">
+    <a-animation attribute="rotation"  dur="2000" repeat="indefinite" fill="forwards" to="-90 230 0"></a-animation>
+    </a-entity>
+        
+  <a-entity obj-model="obj: #personaje-obj; mtl: #personaje-mtl"  rotation="-90 -25 0" position="-1 0 8" scale=".04 .04 .04">
+    <a-animation attribute="scale" direction="alternate" dur="2000" repeat="indefinite" to=".02 .02 .02"></a-animation></a-entity> 
+    
+  <a-entity obj-model="obj: #casa-morada-obj; mtl: #casa-morada-mtl" position="12 0 -11" scale=".04 .04 .04" rotation="-90 0 -30" ></a-entity>
+  
+<a-entity obj-model="obj: #casa-azul-obj; mtl: #casa-azul-mtl" position="12 0 5" scale=".03 .03 .03" rotation="-90 160 5"></a-entity>
+    
+    <a-entity obj-model="obj: #fosha-amarillo-obj; mtl: #fosha-amarillo-mtl" position="1 0 10" scale=".04 .04 .04" rotation="-90 165 0">
+      <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite" to="1 2 10"></a-animation>
+ </a-entity>
+    
+    <a-entity obj-model="obj: #fosha-gris-obj; mtl: #fosha-gris-mtl" position="13 0 -5" scale=".04 .04 .04" rotation="-90 -50 0" >      <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite" to="13 3 -5" to="13 0 -5"></a-animation>
+    <a-animation attribute="rotation" direction="alternate" dur="4000" repeat="indefinite" fill="forwards" to="-90 310 0" ></a-animation> 
+    </a-entity>
+    
+    <a-entity obj-model="obj: #fosha-rosa-obj; mtl: #fosha-rosa-mtl" position="1.5 0 -12" scale=".03 .03 .03" rotation="-90 30 0" ><a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite" to="10 3 -3"></a-animation>
+    <a-animation attribute="rotation" direction="alternate" dur="4000" repeat="indefinite" fill="forwards" to="-90 360 0" ></a-animation> </a-entity>
+
+
+  <a-camera>
+    <a-cursor color="#FAFAFA"> </a-cursor>
+  </a-camera>
+</a-scene>   
+</body>
+</html>
